@@ -1,0 +1,72 @@
+<div class="row page-content">
+    <div class="loading" ng-if="contentData.loading">
+        <div class="message">
+            <p> Loading... </p>
+        </div>
+        <div class="spin-div">
+            <div class="spin"> </div>
+        </div>
+    </div>
+    <div class="logo">
+        <img src="./images/logo.png">
+    </div>
+    <div class="row">
+        <!--<div class="content"> -->
+            <!--<p class="title"> Distributor Medical Repository </p>-->
+        <!--</div>-->
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-12 content">
+            <!--<p> {{filtered.length}} </p>-->
+            <div class="content-empty" ng-if="filtered.length == 0">
+                <p> No content available in this category </p>
+            </div>
+            <div class="col-xs-12 content-item" ng-repeat="item in filtered">
+            <!--<div class="col-xs-12 content-item" ng-repeat="item in filtered = (data.content | contentFilter:fields)">-->
+            <!--<div class="col-xs-12 content-item" ng-repeat="item in items">-->
+                <div class="title-wrap">
+                    <!--<p class="text"> {{item}} </p>-->
+                    <p class="title"> {{item.metafield.name.value}} </p>
+                    <p class="text"> {{item.metafield.year.value}} </p>
+                    <!--<p class="text"> {{item.metafield.fileURL.value}} </p> -->
+                    <!--<p class="text"> {{item.metafield.otherURL.value}} </p> -->
+                    <!--<p class="text"> CAT: {{item.metafield.category.value}} </p> -->
+                    <!--<p class="text"> SLUG: {{item.slug}} </p> -->
+                </div>
+                <div class="btn-favourite" ng-class="{'active':checkIsFavourite(item)}" ng-click="setFavourite(item)"> </div>
+                <div class="btn-view-pdf" ng-if="validatePDF(item)" ng-click="viewPDF(item)"> View pdf </div>
+                <div class="btn-view-url" ng-if="validateURL(item)" ng-click="viewURL(item)"> View video </div>
+                <!--<div class="btn-unavailable" ng-hide="validatePDF(item)"> Unavailable </div>-->
+                <div class="border"> </div>
+            </div>
+            <div class="col-xs-12 nav" ng-if="filtered.length > 0">
+                <ul ng-if="pager.pages.length > 1" class="pagination">
+                    <!--<li ng-class="{disabled:pager.currentPage === 1}">
+                        <a ng-click="setPage(1)">First</a>
+                    </li>-->
+                    <li ng-class="{disabled:pager.currentPage === 1}">
+                        <a ng-click="setPage(pager.currentPage - 1)">Prev</a>
+                    </li>
+                    <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                        <a ng-click="setPage(page)">{{page}}</a>
+                    </li>
+                    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                        <a ng-click="setPage(pager.currentPage + 1)">Next</a>
+                    </li>
+                    <!--<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                        <a ng-click="setPage(pager.totalPages)">Last</a>
+                    </li>-->
+                </ul>
+                <!--<div class="btn-nav active" ng-click="angular.element(this).addClass('active');"> Prev </div>
+                <div class="btn-nav"> 1 </div>
+                <div class="btn-nav"> 2 </div>-->
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</div>

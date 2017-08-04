@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>video slides snyc2</title>
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<!-- build:css styles/vendor.css -->
+	<!-- bower:css -->
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="bower_components/slideout.js/index.css">
+	<!-- endbuild -->
+
+	<!-- build:js scripts/vendor/modernizr.js -->
+	<script src="/bower_components/modernizr/modernizr.js"></script>
+	<!-- endbuild -->
+</head>
+
+<body ng-app="video-slides-sync-app" ng-controller="appController">
+	<!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+	<div id="splashscreen">
+		<div>
+			<img src="images/spinner.svg">
+		</div>
+	</div>
+
+	<div id="content">
+		<nav id="menu">
+			<header>
+				<h2>Speakers</h2>
+				<div class="speakers">
+					<div class="speaker" ng-repeat="speaker in slidesData" ng-click="loadSpeech($index)">
+						<img ng-src="{{speaker.preview}}" alt="{{speaker.author}}">
+
+					</div>
+				</div>
+
+			</header>
+		</nav>
+
+		<main id="panel">
+			<header class="panel-header">
+				<button class="btn-hamburger" ng-click="slideout.toggle()">
+            <span class="tooltip shake">Speakers</span>
+          </button>
+			</header>
+
+			<div class="container" ng-controller="speakerController" ng-click="slideout.close()">
+				<h1>{{slidesData[currentSpeaker].title}}</h1>
+				<p>{{slidesData[currentSpeaker].author}}</p>
+				<div class="row">
+					<!-- <div class="col-sm-3">
+              <h2>Speakers</h2>
+            </div> -->
+					<div class="col-sm-6">
+						<div id="video">
+							<youtube-video video-id="slidesData[currentSpeaker].youtube" player="videoPlayer" player-width="'100%'" player-height="'300px'"></youtube-video>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Play Video!</strong> - please start by playing video.
+						</div>
+					</div>
+					<div class="col-sm-6 hidden-xs">
+						<div id="slides">
+							<div id="currentSlide">
+								<img class="img-responsive" ng-src="{{slidesData[currentSpeaker].slides[currentSlide].src}}">
+							</div>
+						</div>
+						<a target="_blank" href="{{slidesData[currentSpeaker].pdf}}" class="btn btn-primary btn-lg btn-block" role="button" ng-click="videoPlayer.pauseVideo()">View Slides</a>
+					</div>
+				</div>
+				<a target="_blank" role="button" class="btn btn-primary btn-lg btn-block hidden-lg hidden-md hidden-sm" href="{{slidesData[currentSpeaker].pdf}}" ng-click="videoPlayer.pauseVideo()">View Slides</a>
+				<div class="row hidden-xs">
+					<div class="col-sm-12">
+						<section id="thumbnails">
+							<a ng-repeat="slide in slidesData[currentSpeaker].slides" ng-click="videoPlayer.seekTo(slide.start)">
+								<img ng-src="{{slide.src}}">
+								<!-- <span class="text-content">Slide: {{$index}}</span> -->
+							</a>
+						</section>
+					</div>
+				</div>
+				<div class="footer">
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="https://www.youtube.com/iframe_api"></script>
+
+	<!-- build:js scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+	<script src="/bower_components/slideout.js/dist/slideout.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:js scripts/plugins.js -->
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+	<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js scripts/main.js -->
+	<script src="scripts/main.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>

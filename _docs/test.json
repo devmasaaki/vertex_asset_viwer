@@ -1,0 +1,452 @@
+[
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#1",
+        "text": "description",
+        "type": "Speciality type 1",
+        "authors": "PERSON1,PERSON2",
+        "tags": "TAG1,TAG2",
+        "id": "PDF0"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#2",
+        "text": "description",
+        "type": "Speciality type 2",
+        "authors": "PERSON1,PERSON3",
+        "tags": "TAG1,TAG3",
+        "id": "PDF1"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#3",
+        "text": "description",
+        "type": "Speciality type 3",
+        "authors": "PERSON1,PERSON4",
+        "tags": "TAG1,TAG4",
+        "id": "PDF2"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#4",
+        "text": "description",
+        "type": "Speciality type 4",
+        "authors": "PERSON1,PERSON5",
+        "tags": "TAG1,TAG5",
+        "id": "PDF3"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#5",
+        "text": "description",
+        "type": "Speciality type 5",
+        "authors": "PERSON1,PERSON6",
+        "tags": "TAG1,TAG6",
+        "id": "PDF4"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#6",
+        "text": "description",
+        "type": "Speciality type 6",
+        "authors": "PERSON1,PERSON7",
+        "tags": "TAG1,TAG7",
+        "id": "PDF5"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#7",
+        "text": "description",
+        "type": "Speciality type 7",
+        "authors": "PERSON1,PERSON8",
+        "tags": "TAG1,TAG8",
+        "id": "PDF6"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#8",
+        "text": "description",
+        "type": "Speciality type 8",
+        "authors": "PERSON1,PERSON9",
+        "tags": "TAG1,TAG9",
+        "id": "PDF7"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#9",
+        "text": "description",
+        "type": "Speciality type 9",
+        "authors": "PERSON1,PERSON10",
+        "tags": "TAG1,TAG10",
+        "id": "PDF8"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#10",
+        "text": "description",
+        "type": "Speciality type 10",
+        "authors": "PERSON1,PERSON11",
+        "tags": "TAG1,TAG11",
+        "id": "PDF9"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#11",
+        "text": "description",
+        "type": "Speciality type 11",
+        "authors": "PERSON1,PERSON12",
+        "tags": "TAG1,TAG12",
+        "id": "PDF10"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#12",
+        "text": "description",
+        "type": "Speciality type 12",
+        "authors": "PERSON1,PERSON13",
+        "tags": "TAG1,TAG13",
+        "id": "PDF11"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#13",
+        "text": "description",
+        "type": "Speciality type 13",
+        "authors": "PERSON1,PERSON14",
+        "tags": "TAG1,TAG14",
+        "id": "PDF12"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#14",
+        "text": "description",
+        "type": "Speciality type 14",
+        "authors": "PERSON1,PERSON15",
+        "tags": "TAG1,TAG15",
+        "id": "PDF13"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#15",
+        "text": "description",
+        "type": "Speciality type 15",
+        "authors": "PERSON1,PERSON16",
+        "tags": "TAG1,TAG16",
+        "id": "PDF14"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#16",
+        "text": "description",
+        "type": "Speciality type 16",
+        "authors": "PERSON1,PERSON17",
+        "tags": "TAG1,TAG17",
+        "id": "PDF15"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#17",
+        "text": "description",
+        "type": "Speciality type 17",
+        "authors": "PERSON1,PERSON18",
+        "tags": "TAG1,TAG18",
+        "id": "PDF16"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#18",
+        "text": "description",
+        "type": "Speciality type 18",
+        "authors": "PERSON1,PERSON19",
+        "tags": "TAG1,TAG19",
+        "id": "PDF17"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#19",
+        "text": "description",
+        "type": "Speciality type 19",
+        "authors": "PERSON1,PERSON20",
+        "tags": "TAG1,TAG20",
+        "id": "PDF18"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#20",
+        "text": "description",
+        "type": "Speciality type 20",
+        "authors": "PERSON1,PERSON21",
+        "tags": "TAG1,TAG21",
+        "id": "PDF19"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#21",
+        "text": "description",
+        "type": "Speciality type 21",
+        "authors": "PERSON1,PERSON22",
+        "tags": "TAG1,TAG22",
+        "id": "PDF20"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#22",
+        "text": "description",
+        "type": "Speciality type 22",
+        "authors": "PERSON1,PERSON23",
+        "tags": "TAG1,TAG23",
+        "id": "PDF21"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#23",
+        "text": "description",
+        "type": "Speciality type 23",
+        "authors": "PERSON1,PERSON24",
+        "tags": "TAG1,TAG24",
+        "id": "PDF22"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#24",
+        "text": "description",
+        "type": "Speciality type 24",
+        "authors": "PERSON1,PERSON25",
+        "tags": "TAG1,TAG25",
+        "id": "PDF23"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#25",
+        "text": "description",
+        "type": "Speciality type 25",
+        "authors": "PERSON1,PERSON26",
+        "tags": "TAG1,TAG26",
+        "id": "PDF24"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#26",
+        "text": "description",
+        "type": "Speciality type 26",
+        "authors": "PERSON1,PERSON27",
+        "tags": "TAG1,TAG27",
+        "id": "PDF25"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#27",
+        "text": "description",
+        "type": "Speciality type 27",
+        "authors": "PERSON1,PERSON28",
+        "tags": "TAG1,TAG28",
+        "id": "PDF26"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#28",
+        "text": "description",
+        "type": "Speciality type 28",
+        "authors": "PERSON1,PERSON29",
+        "tags": "TAG1,TAG29",
+        "id": "PDF27"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#29",
+        "text": "description",
+        "type": "Speciality type 29",
+        "authors": "PERSON1,PERSON30",
+        "tags": "TAG1,TAG30",
+        "id": "PDF28"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#30",
+        "text": "description",
+        "type": "Speciality type 30",
+        "authors": "PERSON1,PERSON31",
+        "tags": "TAG1,TAG31",
+        "id": "PDF29"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#31",
+        "text": "description",
+        "type": "Speciality type 31",
+        "authors": "PERSON1,PERSON32",
+        "tags": "TAG1,TAG32",
+        "id": "PDF30"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#32",
+        "text": "description",
+        "type": "Speciality type 32",
+        "authors": "PERSON1,PERSON33",
+        "tags": "TAG1,TAG33",
+        "id": "PDF31"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#33",
+        "text": "description",
+        "type": "Speciality type 33",
+        "authors": "PERSON1,PERSON34",
+        "tags": "TAG1,TAG34",
+        "id": "PDF32"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#34",
+        "text": "description",
+        "type": "Speciality type 34",
+        "authors": "PERSON1,PERSON35",
+        "tags": "TAG1,TAG35",
+        "id": "PDF33"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#35",
+        "text": "description",
+        "type": "Speciality type 35",
+        "authors": "PERSON1,PERSON36",
+        "tags": "TAG1,TAG36",
+        "id": "PDF34"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#36",
+        "text": "description",
+        "type": "Speciality type 36",
+        "authors": "PERSON1,PERSON37",
+        "tags": "TAG1,TAG37",
+        "id": "PDF35"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#37",
+        "text": "description",
+        "type": "Speciality type 37",
+        "authors": "PERSON1,PERSON38",
+        "tags": "TAG1,TAG38",
+        "id": "PDF36"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#38",
+        "text": "description",
+        "type": "Speciality type 38",
+        "authors": "PERSON1,PERSON39",
+        "tags": "TAG1,TAG39",
+        "id": "PDF37"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#39",
+        "text": "description",
+        "type": "Speciality type 39",
+        "authors": "PERSON1,PERSON40",
+        "tags": "TAG1,TAG40",
+        "id": "PDF38"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#40",
+        "text": "description",
+        "type": "Speciality type 40",
+        "authors": "PERSON1,PERSON41",
+        "tags": "TAG1,TAG41",
+        "id": "PDF39"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#41",
+        "text": "description",
+        "type": "Speciality type 41",
+        "authors": "PERSON1,PERSON42",
+        "tags": "TAG1,TAG42",
+        "id": "PDF40"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#42",
+        "text": "description",
+        "type": "Speciality type 42",
+        "authors": "PERSON1,PERSON43",
+        "tags": "TAG1,TAG43",
+        "id": "PDF41"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#43",
+        "text": "description",
+        "type": "Speciality type 43",
+        "authors": "PERSON1,PERSON44",
+        "tags": "TAG1,TAG44",
+        "id": "PDF42"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#44",
+        "text": "description",
+        "type": "Speciality type 44",
+        "authors": "PERSON1,PERSON45",
+        "tags": "TAG1,TAG45",
+        "id": "PDF43"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#45",
+        "text": "description",
+        "type": "Speciality type 45",
+        "authors": "PERSON1,PERSON46",
+        "tags": "TAG1,TAG46",
+        "id": "PDF44"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#46",
+        "text": "description",
+        "type": "Speciality type 46",
+        "authors": "PERSON1,PERSON47",
+        "tags": "TAG1,TAG47",
+        "id": "PDF45"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#47",
+        "text": "description",
+        "type": "Speciality type 47",
+        "authors": "PERSON1,PERSON48",
+        "tags": "TAG1,TAG48",
+        "id": "PDF46"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#48",
+        "text": "description",
+        "type": "Speciality type 48",
+        "authors": "PERSON1,PERSON49",
+        "tags": "TAG1,TAG49",
+        "id": "PDF47"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#49",
+        "text": "description",
+        "type": "Speciality type 49",
+        "authors": "PERSON1,PERSON50",
+        "tags": "TAG1,TAG50",
+        "id": "PDF48"
+    },
+    {
+        "uri": "http:\/\/myinteract.co:8888\/~kyle\/resources\/pdfs\/document1.pdf",
+        "title": "Poster#50",
+        "text": "description",
+        "type": "Speciality type 50",
+        "authors": "PERSON1,PERSON51",
+        "tags": "TAG1,TAG51",
+        "id": "PDF49"
+    }
+]

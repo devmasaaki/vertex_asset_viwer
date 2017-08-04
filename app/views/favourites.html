@@ -1,0 +1,27 @@
+<div class="col-xs-12 no-pad container">
+    <div class="col-xs-12 no-pad border">
+        <div class="empty" class="col-xs-12 poster" ng-show="!filteredPosters.length">
+            <p class="center"> {{ (fields.searchValue != '') ? 'No ' + fields.appType + 's available, \n\n please clear search and try again'
+                : 'No '+ fields.appType + 's available' }}</p>
+        </div>
+        <div ng-attr-id="{{ poster.id }}" class="col-xs-6 col-sm-3 poster" ng-repeat="poster in filteredPosters = (posters | favouritesFilter:fields)"
+            ng-click="posterClick(poster,'poster')">
+            <div class="profile center" ng-class="{ active: poster.isActive }" ng-click="selectItem(poster);" ng-style="poster.metafield.imageURL.value != '' ? {'background-image':'url( {{poster.metafield.imageURL.value}} )'}: '' ">
+                <div class="button-favourite">
+                    <div class="button-favourite-bg" ng-class="{on: getFavourite(poster.slug)}" ng-click="setFavourite(poster.slug)"> </div>
+                </div>
+            </div>
+            <div class="info" ng-class="{ active: poster.isActive }">
+                <div class="top" ng-click="selectItem(poster);">
+                    <div class="col-xs-12 col-sm-12 center" ng-show="poster.metafield.name.value != '' ">
+                        <p class="title"> {{poster.metafield.name.value}} </p>
+                    </div>
+                    <div class="button">
+                        <div ng-attr-id="{{ 'button-' + poster.id }}" class="image" ng-class="fields.currentRoute == 'saved' ? 'delete': (poster.state)"
+                            ng-click="selectItem(poster)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

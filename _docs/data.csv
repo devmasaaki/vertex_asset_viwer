@@ -1,0 +1,3 @@
+uri,title,text,type,authors,tags
+http://myinteract.co:8888/~kyle/resources/pdfs/document1.pdf,Poster#1 BLAH,description,Speciality type 1,"PERSON1,PERSON2,PERSON3, PERSON4","TAG1,TAG2,TAG3,TAG4"
+http://myinteract.co:8888/~kyle/resources/pdfs/document1.pdf,Poster#2 BLAH,description,Speciality type 1,array,array
