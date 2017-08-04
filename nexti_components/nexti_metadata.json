@@ -1,0 +1,11 @@
+{
+  "shelf_title" : "Poster App Android",
+  "type" : "html",
+  "content_keyfile" : "index.html",
+  "property_supported_orientations" : "B",
+  "property_initial_orientations" : "U",
+  "property_support_fullscreen" : "NO",
+  "property_pdf_canEmailPDF": "YES",
+  "property_html_showBackButton" : "YES",
+  "property_html_brochureControlsClose": "NO"
+ }
