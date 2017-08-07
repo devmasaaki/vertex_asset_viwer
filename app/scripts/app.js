@@ -22,7 +22,8 @@ var posterApp = angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule',
-    'ng-slide-down'
+    'ng-slide-down',
+    'vAccordion'
   ])
   .config(function ($routeProvider, $locationProvider ,localStorageServiceProvider) {
 

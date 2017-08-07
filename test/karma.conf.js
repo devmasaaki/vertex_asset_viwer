@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/underscore/underscore.js',
       'bower_components/ng-slide-down/dist/ng-slide-down.js',
+      'bower_components/v-accordion/dist/v-accordion.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

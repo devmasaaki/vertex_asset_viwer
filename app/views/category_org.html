@@ -1,0 +1,42 @@
+<div class="row page-category">
+        <div class="logo">
+            <img src="./images/logo.png">
+        </div>
+
+        <div class="holdout">
+    <div class="row">
+        <div class="content">
+            <p class="title">Select a topic below</p>
+        </div>
+    </div>
+    <div class="row">
+        <!--<p> {{filtered.length}} </p>-->
+        <div class="col-xs-12 outercat" ng-repeat="cat in (yao.data.categories)">
+        <!-- <div class="col-xs-12 outercat" ng-if="cat.slug != 'all'" ng-repeat="cat in filtered = (data.categories | categoryFilter:fields)">           -->
+          <div class="col-xs-12 category" ng-click="toggle = !toggle">
+          <img class="plusbtn" ng-class="{'hide' : !toggle}" src="images/plusbtn.png">
+          <img class="plusbtn" ng-class="{'hide' : toggle}" src="images/minbtn.png">
+            <!-- <a class="col-xs-12 cats" ng-click="setPageSlug(item)" ng-href="{{loadPage('#/content:'+encodeURL(item.metafield.name.value))}}"> -->
+              {{cat.name}}
+            <!-- </a> -->
+          </div>
+          <div class="col-xs-12 outersubcat" ng-repeat="subcat in (cat.subcategories)">
+            <div class="subcat col-xs-12" ng-click="itoggle = !itoggle " ng-class="{'hide' : toggle}">
+              <img class="plusbtn" src="images/arwd.png">
+              {{subcat.name}}
+            </div>
+            <div class="heyo col-xs-12 no-pad" ng-class="{'hide' : itoggle || toggle }">
+            <div class="col-xs-12 no-pad" ng-if="cat.slug == subcat.metafield.category.value" ng-repeat="pdf in (subcat.items)">
+              <div class="concont col-xs-12">
+                <a ng-href="{{subcat.metafield.fileURL.value}}" class="col-xs-12">
+                {{pdf.title}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+</div>
+</div>

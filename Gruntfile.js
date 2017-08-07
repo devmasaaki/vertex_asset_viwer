@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    itBuildPrepare: 'grunt-it-build'
+    // itBuildPrepare: 'grunt-it-build'
   });
 
   // Configurable paths for the application
@@ -513,7 +513,7 @@ module.exports = function (grunt) {
     'postcss',
     'ngtemplates',
     'concat',
-    'itBuildPrepare:prod',
+    // 'itBuildPrepare:prod',
     'ngAnnotate',
     'copy:dist',
     'cssmin',
@@ -527,6 +527,6 @@ module.exports = function (grunt) {
     // 'newer:jscs',
     'test',
     'build',
-    'itBuild:prod'
+    // 'itBuild:prod'
   ]);
 };
