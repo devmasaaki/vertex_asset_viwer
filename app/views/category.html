@@ -1,16 +1,16 @@
 <div class="row page-category">
-  <div class="logo">
-      <img src="./images/logo.png">
-  </div>
-  <div class="holdout">
-    <div class="row">
-        <div class="content">
-            <p class="title">Select a topic below</p>
-        </div>
+    <div class="logo">
+        <img src="./images/logo.png">
     </div>
-    <div class="row">
-      <!--<p> {{filtered.length}} </p>-->
-      <!-- <ang-accordion class="outercat" one-at-a-time="true" icon-position="right" close-icon-url="images/plusbtn.png" open-icon-url="images/minbtn.png"> 
+    <div class="holdout">
+        <div class="row">
+            <div class="content">
+                <p class="title">Select a topic below</p>
+            </div>
+        </div>
+        <div class="row">
+            <!--<p> {{filtered.length}} </p>-->
+            <!-- <ang-accordion class="outercat" one-at-a-time="true" icon-position="right" close-icon-url="images/plusbtn.png" open-icon-url="images/minbtn.png"> 
         <collapsible-item item-title="{{cat.name}}" class="col-xs-12 category" ng-repeat="cat in (yao.data.categories)">
           <div class="outercat">
           <ang-accordion class="col-xs-12" icon-position="right" close-icon-class="fa fa-chevron-right" open-icon-class="fa fa-chevron-down"> 
@@ -27,8 +27,8 @@
           </ang-accordion>
         </collapsible-item>
       </ang-accordion> -->
-      
-       <!-- <v-accordion class="col-xs-12 outercat vAccordion--default">
+
+            <!-- <v-accordion class="col-xs-12 outercat vAccordion--default">
 
         <v-pane ng-repeat="cat in yao.data.categories">
           <v-pane-header class="category">
@@ -60,39 +60,46 @@
       
       </v-accordion>  -->
 
-             <v-accordion class="col-xs-12 outercat vAccordion--default">
+            <v-accordion class="col-xs-12 outercat vAccordion--default">
 
-        <v-pane ng-repeat="cat in yao.data.categories">
-          <v-pane-header >
-            {{ ::cat.name }}
-          </v-pane-header>
-      
-          <v-pane-content>
-            
-            <v-accordion ng-if="cat.subcategories">
-              <v-pane ng-repeat="subcat in cat.subcategories">
-                <v-pane-header>
-                  {{ ::subcat.name }}
-                </v-pane-header>
-                <v-pane-content >
-                  <div ng-if="subcat.items">
-                    <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items)">
-                      <div class="concont col-xs-12">
-                        <a ng-href="{{subcat.metafield.fileURL.value}}" class="col-xs-12">
-                        {{pdf.title}}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </v-pane-content>
-              </v-pane>
+                <!-- <v-pane ng-repeat="cat in yao.data.categories" ng-if="!cat.deleted"> -->
+                <v-pane ng-repeat="cat in filtered = (yao.data.categories | categoryFilter:fields)" ng-if="!cat.deleted">
+
+                    <v-pane-header class="category" ng-click="toggle = !toggle" ng-class="{'yellow': checkInclude(cat.name),'normal': !checkInclude(cat.name) }">
+                        {{ ::cat.name }}
+                        <img class="plusbtn hide" ng-class="{'hide' : toggle}" src="images/minbtn.png">
+                        <img class="plusbtn" ng-class="{'hide' : !toggle}" src="images/plusbtn.png">
+                    </v-pane-header>
+
+                    <v-pane-content>
+
+                        <v-accordion ng-if="cat.subcategories" class="sub-vAccordion--default">
+                            <v-pane ng-repeat="subcat in cat.subcategories" ng-if="!subcat.deleted">
+                                <!-- <v-pane ng-repeat="subcat in filtered = (cat.subcategories | subcategoryFilter:fields)" ng-if="!subcat.deleted"> -->
+                                <v-pane-header class="subcat" ng-click="sub_toggle = !sub_toggle" ng-class="{'yellow': checkInclude(subcat.name),'normal': !checkInclude(subcat.name) }">
+                                    {{ ::subcat.name }}
+                                    <img class="plusbtn hide" ng-class="{'hide' : !sub_toggle}" src="images/arwd-up.png">
+                                    <img class="plusbtn" ng-class="{'hide' : sub_toggle}" src="images/arwd-down.png">
+                                </v-pane-header>
+                                <v-pane-content class="consub_cont">
+                                    <div ng-if="subcat.items">
+                                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items)" ng-if="!pdf.deleted">
+                                            <!-- <div class="col-xs-12 no-pad" ng-repeat="pdf in filtered = (subcat.items | pdfcategoryFilter:fields)" ng-if="!pdf.deleted"> -->
+                                            <div class="concont col-xs-12">
+                                                <a ng-href="{{pdf.file.url}}" class="col-xs-12" ng-class="{'yellow': checkInclude(pdf.title),'normal': !checkInclude(pdf.title) }">
+                                                  {{pdf.title}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </v-pane-content>
+                            </v-pane>
+                        </v-accordion>
+                    </v-pane-content>
+                </v-pane>
+
             </v-accordion>
-          </v-pane-content>
-        </v-pane>
-      
-      </v-accordion> 
+        </div>
+
     </div>
-
-  </div>
 </div>
-
