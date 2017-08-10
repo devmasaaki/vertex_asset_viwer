@@ -123,7 +123,7 @@ v-pane-content>div {
 
 .vAccordion--default v-pane[disabled] v-pane-header::after,
 .vAccordion--default v-pane[disabled] v-pane-header::before {
-    display: none;
+    // display: none;
 }
 
 .vAccordion--default v-pane-header {
@@ -156,9 +156,58 @@ v-pane-content>div {
 //     -webkit-transition: all 0.25s;
 //     transition: all 0.25s;
 // }
-.vAccordion--default v-pane-header::before {
+.vAccordion--default .category::before {
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
+}
+.vAccordion--default .category::after ,.vAccordion--default .category::before{
+    content:''; /*reset the content*/
+    top: 35%;/*adjust the position of background image*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: inherit !important; /* remove any default colors*/
+    right: auto;
+    height: 20px;/*set height of image*/
+    width: 20px;/*set width of image*/
+    left: 10px; /*adjust the left alignment*/
+}
+.vAccordion--default .subcat::after ,.vAccordion--default .subcat::before{
+    content:''; /*reset the content*/
+    top: 35%;/*adjust the position of background image*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: inherit !important; /* remove any default colors*/
+    right: auto;
+    height: 15px;/*set height of image*/
+    width: 20px;/*set width of image*/
+    left: 10px; /*adjust the left alignment*/
+}
+/* set the collapse icon*/
+.vAccordion--default .category::after {
+    background-image:url('../images/plusbtn.png');
+    margin-top: -20px;
+    display: block;
+    float: right;
+}
+
+/* set the expand icon*/
+v-pane.is-expanded .category::before{
+    background-image:url('../images/minbtn.png');
+    display: block;
+    float: right;
+}
+.vAccordion--default .subcat::after {
+    background-image:url('../images/arwd-up.png');
+    margin-top: -20px;
+    display: block;
+    float: right;
+}
+
+/* set the expand icon*/
+v-pane.is-expanded .subcat::before{
+    background-image:url('../images/arwd-down.png');
+    display: block;
+    float: right;
 }
 
 .vAccordion--default v-pane-header:hover,

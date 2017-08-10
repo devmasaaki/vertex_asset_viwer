@@ -67,8 +67,8 @@
 
                     <v-pane-header class="category" ng-click="toggle = !toggle" ng-class="{'yellow': checkInclude(cat.name),'normal': !checkInclude(cat.name) }">
                         {{ ::cat.name }}
-                        <img class="plusbtn hide" ng-class="{'hide' : toggle}" src="images/minbtn.png">
-                        <img class="plusbtn" ng-class="{'hide' : !toggle}" src="images/plusbtn.png">
+                         <!-- <img class="plusbtn hide" ng-class="{'hide' : toggle}" src="images/minbtn.png">
+                        <img class="plusbtn" ng-class="{'hide' : !toggle}" src="images/plusbtn.png">  -->
                     </v-pane-header>
 
                     <v-pane-content>
@@ -78,8 +78,8 @@
                                 <!-- <v-pane ng-repeat="subcat in filtered = (cat.subcategories | subcategoryFilter:fields)" ng-if="!subcat.deleted"> -->
                                 <v-pane-header class="subcat" ng-click="sub_toggle = !sub_toggle" ng-class="{'yellow': checkInclude(subcat.name),'normal': !checkInclude(subcat.name) }">
                                     {{ ::subcat.name }}
-                                    <img class="plusbtn hide" ng-class="{'hide' : !sub_toggle}" src="images/arwd-up.png">
-                                    <img class="plusbtn" ng-class="{'hide' : sub_toggle}" src="images/arwd-down.png">
+                                    <!-- <img class="plusbtn hide" ng-class="{'hide' : !sub_toggle}" src="images/arwd-up.png">
+                                    <img class="plusbtn" ng-class="{'hide' : sub_toggle}" src="images/arwd-down.png"> -->
                                 </v-pane-header>
                                 <v-pane-content class="consub_cont">
                                     <div ng-if="subcat.items">
