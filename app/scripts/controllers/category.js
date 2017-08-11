@@ -115,15 +115,15 @@ angular.module('posterAppApp')
         $scope.toggle = true;
         $scope.itoggle = true;
 
-        console.log($rootScope.data.content);
-        console.log($rootScope.data.categories);
+        // console.log($rootScope.data.content);
+        // console.log($rootScope.data.categories);
 
 
     });
 
 posterApp.filter('categoryFilter', function() {
     return function(items, fields) {
-        console.log(items);
+        // console.log(items);
         // console.log('CONTENT FILTER');
         // console.log(items);
         // console.log(fields);
@@ -170,7 +170,7 @@ posterApp.filter('categoryFilter', function() {
                 }
             }
         }
-        console.log(filtered);
+        // console.log(filtered);
         return filtered;
 
         // if (items && items.length > 0) {

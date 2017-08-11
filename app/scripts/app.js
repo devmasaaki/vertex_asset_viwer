@@ -767,12 +767,16 @@ var posterApp = angular
         ///////////
 
         /*++++++++++++++++++++++++++++++++++++++++++++++++++ YAO API +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-        $rootScope.yao.getAssetData = function(assetNo) {
+        $rootScope.yao.getAssetData = function(assetNo, callback) {
             var yao1 = new Yao.YaoApi();
             yao1.assetData(assetNo).then(function(assetData) {
                 console.log(assetData);
                 $rootScope.yao.data = assetData;
+                if(callback)
+                    callback(true);
             }).catch(function(error) {
+                if(callback)
+                    callback(false);
                 console.log(error);
             })
         };
@@ -811,11 +815,25 @@ var posterApp = angular
 
                 $rootScope.fields.refresh = true;
 
-                if ($rootScope.data.structure) {
-                    console.log($rootScope.data.structure.objects[0].type_slug);
-                    $rootScope.cosmic.getObjects($rootScope.data.structure.objects[0].type_slug);
-                    $rootScope.cosmic.getObjects($rootScope.data.structure.objects[1].type_slug);
-                }
+                // if ($rootScope.data.structure) {
+                //     console.log($rootScope.data.structure.objects[0].type_slug);
+                //     $rootScope.cosmic.getObjects($rootScope.data.structure.objects[0].type_slug);
+                //     $rootScope.cosmic.getObjects($rootScope.data.structure.objects[1].type_slug);
+                // }
+                $rootScope.yao.getAssetData(1, function(err){
+                    // alert('aaa');
+                    $rootScope.fields.loading = false;
+                    $rootScope.fields.refresh = false;
+                    if(err){
+                        $rootScope.loadPage('reload');
+                        $rootScope.appLoad();
+                        // $rootScope.$broadcast('data-loaded', { slug: { test: 'test' } });
+                    }
+                    if(!err){
+                        // alert('Refresh Error')
+                        console.log('data refresh failed')
+                    }
+                });
                 // $route.reload();
             } else if (url === 'reload') {
                 $route.reload();
@@ -950,20 +968,20 @@ var posterApp = angular
         };
 
         $rootScope.loadData = function() {
-            $http.get('./resources/cosmic.json').then(function(response) {
-                // $window.console.log(JSON.stringify(response.data));
-                $rootScope.data.structure = response.data;
-                $rootScope.fields.loading = false;
+            // $http.get('./resources/cosmic.json').then(function(response) {
+            //     // $window.console.log(JSON.stringify(response.data));
+            //     $rootScope.data.structure = response.data;
+            //     $rootScope.fields.loading = false;
 
 
-                $rootScope.cosmic.config = response.data.cosmic.config;
-                console.log($rootScope.data.structure.objects[0].type_slug);
-                console.log($rootScope.data.structure.objects[1].type_slug);
-                $rootScope.cosmic.getObjects($rootScope.data.structure.objects[0].type_slug);
-                $rootScope.cosmic.getObjects($rootScope.data.structure.objects[1].type_slug);
-
-                $rootScope.yao.getAssetData(1);
-            });
+            //     $rootScope.cosmic.config = response.data.cosmic.config;
+            //     console.log($rootScope.data.structure.objects[0].type_slug);
+            //     console.log($rootScope.data.structure.objects[1].type_slug);
+            //     $rootScope.cosmic.getObjects($rootScope.data.structure.objects[0].type_slug);
+            //     $rootScope.cosmic.getObjects($rootScope.data.structure.objects[1].type_slug);
+            // });
+            $rootScope.fields.loading = false;
+            $rootScope.yao.getAssetData(1);
             $rootScope.loadPage('back');
             // $rootScope.resize();
         };
