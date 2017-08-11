@@ -72,7 +72,13 @@
                     </v-pane-header>
 
                     <v-pane-content>
-
+                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (cat.items)" ng-if="!pdf.deleted">
+                            <div class="concont col-xs-12">
+                                <a ng-href="{{pdf.file.url}}" class="col-xs-12" ng-class="{'yellow': checkInclude(pdf.title),'normal': !checkInclude(pdf.title) }">
+                                        {{pdf.title}}
+                                </a>
+                            </div>
+                        </div>  
                         <v-accordion ng-if="cat.subcategories" class="sub-vAccordion--default">
                             <v-pane ng-repeat="subcat in cat.subcategories" ng-if="!subcat.deleted">
                                 <!-- <v-pane ng-repeat="subcat in filtered = (cat.subcategories | subcategoryFilter:fields)" ng-if="!subcat.deleted"> -->
