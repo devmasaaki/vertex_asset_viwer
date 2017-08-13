@@ -120,6 +120,9 @@ v-pane-content>div {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
+v-pane-content>div{
+    overflow: hidden;
+}
 
 .vAccordion--default v-pane[disabled] v-pane-header::after,
 .vAccordion--default v-pane[disabled] v-pane-header::before {
@@ -171,14 +174,14 @@ v-pane-content>div {
     width: 20px;/*set width of image*/
     left: 10px; /*adjust the left alignment*/
 }
-.vAccordion--default .subcat::after ,.vAccordion--default .subcat::before{
+.sub-vAccordion--default .subcat::after ,.vAccordion--default .subcat::before{
     content:''; /*reset the content*/
     top: 35%;/*adjust the position of background image*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: inherit !important; /* remove any default colors*/
     right: auto;
-    height: 15px;/*set height of image*/
+    height: 20px;/*set height of image*/
     width: 20px;/*set width of image*/
     left: 10px; /*adjust the left alignment*/
 }
@@ -196,18 +199,19 @@ v-pane.is-expanded .category::before{
     display: block;
     float: right;
 }
-.vAccordion--default .subcat::after {
-    background-image:url('../images/arwd-up.png');
+.sub-vAccordion--default .subcat::after {
+    background-image:url('../images/arwd-down.png');
     margin-top: -20px;
     display: block;
     float: right;
 }
 
 /* set the expand icon*/
-v-pane.is-expanded .subcat::before{
-    background-image:url('../images/arwd-down.png');
+.sub-vAccordion--default v-pane.is-expanded .subcat::before{
+    background-image:url('../images/arwd-up.png');
     display: block;
     float: right;
+    
 }
 
 .vAccordion--default v-pane-header:hover,
