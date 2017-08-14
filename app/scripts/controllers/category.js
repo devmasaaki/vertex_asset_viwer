@@ -287,3 +287,18 @@ posterApp.filter('pdfcategoryFilter', function() {
         return filtered;
     };
 });
+
+posterApp.filter('orderObjectBy', function(){
+    return function(items, reverse){
+        var filtered = [];
+
+        angular.forEach(items, function (item) {
+            filtered.push(item);
+        });
+        filtered.sort(function (a, b) {
+            return (a.sort*1 > b.sort*1 ? 1 : -1);
+        });
+        if (reverse) filtered.reverse();
+        return filtered;
+    };
+});
