@@ -63,7 +63,7 @@
             <v-accordion class="col-xs-12 outercat vAccordion--default">
 
                 <!-- <v-pane ng-repeat="cat in yao.data.categories" ng-if="!cat.deleted"> -->
-                <v-pane ng-repeat="cat in filtered = (yao.data.categories | categoryFilter:fields)" ng-if="!cat.deleted">
+                <v-pane ng-repeat="cat in filtered = (yao.data.categories | categoryFilter:fields | orderBy : 'sort')" ng-if="!cat.deleted">
 
                     <v-pane-header class="category" ng-click="toggle = !toggle" ng-class="{'yellow': checkInclude(cat.name),'normal': !checkInclude(cat.name) }">
                         {{ ::cat.name }}
@@ -72,15 +72,15 @@
                     </v-pane-header>
 
                     <v-pane-content>
-                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (cat.items)" ng-if="!pdf.deleted">
-                            <div class="concont col-xs-12">
-                                <a ng-href="{{pdf.file.url}}" class="col-xs-12" ng-class="{'yellow': checkInclude(pdf.title),'normal': !checkInclude(pdf.title) }">
+                        <div class="no-pad" ng-repeat="pdf in (cat.items | orderBy : 'sort')" ng-if="!pdf.deleted">
+                            <div class="concont">
+                                <a ng-href="{{pdf.file.url}}" class="" ng-class="{'yellow': checkInclude(pdf.title),'normal': !checkInclude(pdf.title) }">
                                         {{pdf.title}}
                                 </a>
                             </div>
                         </div>  
                         <v-accordion ng-if="cat.subcategories" class="sub-vAccordion--default">
-                            <v-pane ng-repeat="subcat in cat.subcategories" ng-if="!subcat.deleted">
+                            <v-pane ng-repeat="subcat in (cat.subcategories  | orderBy : 'sort')" ng-if="!subcat.deleted">
                                 <!-- <v-pane ng-repeat="subcat in filtered = (cat.subcategories | subcategoryFilter:fields)" ng-if="!subcat.deleted"> -->
                                 <v-pane-header class="subcat" ng-click="sub_toggle = !sub_toggle" ng-class="{'yellow': checkInclude(subcat.name),'normal': !checkInclude(subcat.name) }">
                                     {{ ::subcat.name }}
@@ -89,7 +89,7 @@
                                 </v-pane-header>
                                 <v-pane-content class="consub_cont">
                                     <div ng-if="subcat.items">
-                                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items)" ng-if="!pdf.deleted">
+                                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items | orderBy : 'sort')" ng-if="!pdf.deleted">
                                             <!-- <div class="col-xs-12 no-pad" ng-repeat="pdf in filtered = (subcat.items | pdfcategoryFilter:fields)" ng-if="!pdf.deleted"> -->
                                             <div class="concont col-xs-12">
                                                 <a ng-href="{{pdf.file.url}}" class="col-xs-12" ng-class="{'yellow': checkInclude(pdf.title),'normal': !checkInclude(pdf.title) }">
