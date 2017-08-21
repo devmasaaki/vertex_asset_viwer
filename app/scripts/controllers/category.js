@@ -39,6 +39,7 @@ angular.module('posterAppApp')
             }
             return false;
         }
+
         $scope.checkValidImage = function(url) {
             var result = url;
             // console.log(url);
@@ -118,10 +119,14 @@ angular.module('posterAppApp')
         // console.log($rootScope.data.content);
         // console.log($rootScope.data.categories);
 
+        // $scope.$on('my-accordion:onReady', function () {
+        //     var firstPane = $scope.panes[0];
+        //     $scope.accordion.toggle(firstPane.id);
+        //   });
 
     });
 
-posterApp.filter('categoryFilter', function() {
+posterApp.filter('categoryFilter', function($rootScope) {
     return function(items, fields) {
         // console.log(items);
         // console.log('CONTENT FILTER');
@@ -129,160 +134,82 @@ posterApp.filter('categoryFilter', function() {
         // console.log(fields);
         var filtered = [];
 
-        if (items && items.length > 0) {
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                var result = true;
+        var categories = items;
 
-                if (item.deleted !== undefined && item.deleted) {
-                    result = false;
-                } else {
-                    if (fields && fields.searchValue) {
-                        var text = fields.searchValue.toLowerCase();
-                        // console.log(text);
-                        // console.log(item);
-                        if (item.name.toLowerCase().indexOf(text) > -1) {
-                            // console.log('test');
-                            result = true;
-                        } else {
-                            result = false;
-                            var subcategory = item.subcategories;
-                            for (var j = 0; j < subcategory.length; j++) {
-                                if (subcategory[j].name.toLowerCase().indexOf(text) > -1) {
-                                    // console.log('test');
-                                    result = true;
-                                } else {
-                                    var pdf = subcategory[j].items;
-                                    for (var k = 0; k < pdf.length; k++) {
-                                        if (pdf[k].title.toLowerCase().indexOf(text) > -1) {
-                                            // console.log('test');
-                                            result = true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                if (result) {
-                    // if( true ) {
-                    filtered.push(item);
+        var checkCategoryInclude = function(cat, text){
+            // category is deleted? or not assigned?
+            if (cat.deleted === undefined || cat.deleted || !cat.assigned)
+                return false;
+
+            if ($rootScope.checkInclude(cat.name, text))
+                return true;
+            
+            if(cat.items && $rootScope.checkArrayInclude(cat.items, text))
+                return true;
+
+            var subcategories;
+            if (cat.subcategories && $rootScope.checkArrayInclude((subcategories = cat.subcategories) , text) )
+                return true;
+
+            for (var i = 0; i < subcategories.length; i++) {
+                if(subcategories.items && $rootScope.checkArrayInclude(subcategories[i].items, text))
+                    return true;
+            }
+
+            return false;
+        };
+
+        var text = '';
+        if (fields && fields.searchValue && fields.searchValue != '') 
+            text = fields.searchValue;
+
+        if (categories && categories.length > 0) {
+            for (var i = 0; i < categories.length; i++) {
+                if (text == '' || checkCategoryInclude(categories[i], text)) {
+                    filtered.push(categories[i]);
                 }
             }
         }
         // console.log(filtered);
         return filtered;
 
-        // if (items && items.length > 0) {
-        //     for (var i = 0; i < items.length; i++) {
-        //         var item = items[i];
-        //         var result = true;
-
-        //         if (item.metafield.deleted !== undefined && window.toBoolean(item.metafield.deleted.value)) {
-        //             result = false;
-        //         } else {
-        //             if (fields && fields.searchValue) {
-        //                 var text = fields.searchValue.toLowerCase();
-        //                 // console.log(text);
-        //                 // console.log(item);
-        //                 if (item.metafield.name.value.toLowerCase().indexOf(text) > -1) {
-        //                     console.log('test');
-        //                     result = true;
-        //                 } else {
-        //                     result = false;
-        //                 }
-        //             }
-        //         }
-        //         if (result) {
-        //             // if( true ) {
-        //             filtered.push(item);
-        //         }
-        //     }
-        // }
-        // console.log(filtered);
-        // return filtered;
     };
 });
-posterApp.filter('subcategoryFilter', function() {
+
+posterApp.filter('subcategoryFilter', function($rootScope) {
     return function(items, fields) {
         //console.log(items);
         var filtered = [];
 
-        if (items && items.length > 0) {
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                var result = true;
+        var subs = items;
+        var text = '';
+        if(fields && fields.searchValue)
+            text = fields.searchValue;
 
-                if (item.deleted !== undefined && item.deleted) {
-                    result = false;
-                } else {
-                    if (fields && fields.searchValue) {
-                        var text = fields.searchValue.toLowerCase();
-                        // console.log(text);
-                        // console.log(item);
-                        if (item.name.toLowerCase().indexOf(text) > -1) {
-                            // console.log('test');
-                            result = true;
-
-                        } else {
-                            result = false;
-                            var pdf = item.items;
-                            for (var k = 0; k < pdf.length; k++) {
-                                if (pdf[k].title.toLowerCase().indexOf(text) > -1) {
-                                    // console.log('test');
-                                    result = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (result) {
-                    // if( true ) {
-                    // console.log(result);
-                    filtered.push(item);
-                }
-            }
+        for (var i = 0; i < subs.length; i ++){
+            if ( $rootScope.checkInclude(subs[i].name, text) || $rootScope.checkArrayInclude(subs[i].items, text))
+                filtered.push(subs[i]);
         }
-        //console.log(filtered);
 
         return filtered;
     };
 });
 
-posterApp.filter('pdfcategoryFilter', function() {
+posterApp.filter('pdfcategoryFilter', function($rootScope) {
     return function(items, fields) {
         //console.log(items);
         var filtered = [];
 
-        if (items && items.length > 0) {
-            for (var i = 0; i < items.length; i++) {
-                var item = items[i];
-                var result = true;
+        var pdfs = items;
+        var text = '';
+        if(fields && fields.searchValue)
+            text = fields.searchValue;
 
-                if (item.deleted !== undefined && item.deleted) {
-                    result = false;
-                } else {
-                    if (fields && fields.searchValue) {
-                        var text = fields.searchValue.toLowerCase();
-                        // console.log(text);
-                        // console.log(item);
-                        if (item.title.toLowerCase().indexOf(text) > -1) {
-                            // console.log('test');
-                            result = true;
-
-                        } else {
-                            result = false;
-                        }
-                    }
-                }
-                if (result) {
-                    // if( true ) {
-                    // console.log(result);
-                    filtered.push(item);
-                }
+        for (var i=0; i<pdfs.length; i ++){
+            if( text == '' || $rootScope.checkInclude(pdfs[i].title, text) || $rootScope.checkServerFiltered(pdfs[i].id)){
+                filtered.push(pdfs[i]);
             }
         }
-        //console.log(filtered);
 
         return filtered;
     };
@@ -298,7 +225,9 @@ posterApp.filter('orderObjectBy', function(){
         filtered.sort(function (a, b) {
             return (a.sort*1 > b.sort*1 ? 1 : -1);
         });
+
         if (reverse) filtered.reverse();
+
         return filtered;
     };
 });

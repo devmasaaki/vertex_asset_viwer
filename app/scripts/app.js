@@ -12,6 +12,7 @@
 
 var jQuery;
 var cosmic;
+var yao = new Yao.YaoApi();
 
 var posterApp = angular
     .module('posterAppApp', [
@@ -143,6 +144,7 @@ var posterApp = angular
 
         $rootScope.yao = {
             data: null,
+            filterdItems: null
         }
 
         $rootScope.posters = [];
@@ -517,7 +519,55 @@ var posterApp = angular
             }
             return value;
         };
+/** +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+        // check when a given pdf file be included to server filtered data
+        $rootScope.checkServerFiltered = function(pdf_id){
+            var pdfFiltered = $rootScope.yao.filterdItems;
+            if(pdfFiltered === undefined || pdfFiltered == null || pdfFiltered.length == 0)
+                return false;
+            for (var i = 0; i < pdfFiltered.length; i ++) {
+                if(pdfFiltered[i].id * 1 == pdf_id * 1){
+                    // console.log(pdf_id);
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        // check if 'key' is included in 'str'
+        $rootScope.checkInclude = function (str, key){
+            if(key == '') return true;
+
+            if(str.toLowerCase().indexOf(key.toLowerCase()) == -1 )
+                return false;
+            return true;
+        }
+
+        // check if a given subcategories or items include 'key' or ...
+        $rootScope.checkArrayInclude = function(ary, key){
+            if(!ary)
+                return false;
+
+            for (var i = 0; i < ary.length; i ++){
+                if(ary[i].deleted == false && ary[i].assigned == true){
+                    if (ary[i].name !== undefined && $rootScope.checkInclude(ary[i].name, key)){
+                        return true;
+                    }
+                    else if (ary[i].title !== undefined && 
+                        ( $rootScope.checkInclude(ary[i].title, key) || $rootScope.checkServerFiltered(ary[i].id) ) ){
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        };
+
+
+
+
+
+/** +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
         $rootScope.$watch('fields.searchValue', function(val) {
             if (val === null) {
 
@@ -529,10 +579,19 @@ var posterApp = angular
                     console.log($routeParams);
                 }
             } else if (val !== '') {
+                // alert('changed')
                 var newURL = $rootScope.addQuery('search=' + val);
                 if (newURL !== '' && newURL !== null && newURL !== undefined) {
                     console.log(newURL);
-                    $window.location.href = newURL;
+                    $rootScope.yao.searchPDFs(1, val, function(resp, err){
+                        if(!err){
+                            $rootScope.yao.filterdItems = resp;
+                            console.log(resp);
+                            $window.location.href = newURL;
+                            // accordion.expandALl();
+                        }
+                    });
+                    // $window.location.href = newURL;
                     console.log($routeParams);
                 }
             }
@@ -768,8 +827,7 @@ var posterApp = angular
 
         /*++++++++++++++++++++++++++++++++++++++++++++++++++ YAO API +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
         $rootScope.yao.getAssetData = function(assetNo, callback) {
-            var yao1 = new Yao.YaoApi();
-            yao1.assetData(assetNo).then(function(assetData) {
+            yao.assetData(assetNo).then(function(assetData) {
                 console.log(assetData);
                 $rootScope.yao.data = assetData;
                 $rootScope.loadPage('reload');
@@ -781,6 +839,20 @@ var posterApp = angular
                 console.log(error);
             })
         };
+
+        $rootScope.yao.searchPDFs = function(assetNo, keyword, callback) {
+            yao.searchPDF(assetNo, keyword).then(function(foundItems) {
+                console.log(foundItems);
+                // $rootScope.yao.data = assetData;
+                // $rootScope.loadPage('reload');
+                if(callback)
+                    callback(foundItems, false);
+            }).catch(function(error) {
+                if(callback)
+                    callback([], true);
+                console.log(error);
+            })
+        };        
         /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
         $rootScope.getCurrentPage = function() {
