@@ -119,6 +119,9 @@ $colour-background-primary: #F5F5F5;
 .concont {
     padding: 10px;
     padding-left: 18px;
+    overflow:  hidden !important;
+    text-overflow:  ellipsis !important;
+    white-space:  nowrap !important;
 }
 
 .heyo {
@@ -129,6 +132,10 @@ $colour-background-primary: #F5F5F5;
 .concont a {
     color: #8e8b91;
     padding: 0;
+
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important;
 }
 
 .no-pad {
