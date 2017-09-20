@@ -152,7 +152,7 @@ posterApp.filter('categoryFilter', function($rootScope) {
                 return true;
 
             for (var i = 0; i < subcategories.length; i++) {
-                if(subcategories.items && $rootScope.checkArrayInclude(subcategories[i].items, text))
+                if(subcategories[i].items && $rootScope.checkArrayInclude(subcategories[i].items, text))
                     return true;
             }
 
