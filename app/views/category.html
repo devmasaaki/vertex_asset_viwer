@@ -89,7 +89,7 @@
                                 </v-pane-header>
                                 <v-pane-content class="consub_cont">
                                     <div ng-if="subcat.items">
-                                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items | orderObjectBy )" ng-if="!pdf.deleted">
+                                        <div class="col-xs-12 no-pad" ng-repeat="pdf in (subcat.items | pdfcategoryFilter:fields | orderObjectBy )" ng-if="!pdf.deleted">
                                             <!-- <div class="col-xs-12 no-pad" ng-repeat="pdf in filtered = (subcat.items | pdfcategoryFilter:fields)" ng-if="!pdf.deleted"> -->
                                             <div class="concont col-xs-12">
                                                 <a ng-href="{{pdf.file.url}}" class="col-xs-12" ng-class="{'yellow': (checkInclude(pdf.title) || checkServerFiltered(pdf.id)),'normal': (!checkInclude(pdf.title) && !checkServerFiltered(pdf.id))}">
